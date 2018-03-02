@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>券売機</title>
+  <style>
+    body {  
+    text-align: center;  
+    }
+    #container {
+      display: flex;
+      width: 800px;  
+      margin: 0 auto;  
+      text-align: left;
+    }
+    #ticketDispenser {
+      width: 400px;
+    }
+    #ticketDispenser ul {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    #ticketDispenser ul li {
+      list-style: none;
+      width: 25%;
+    }
+    #ticketDispenser ul li img {
+      display: block;
+      width: 100%;
+    }
+    #ticketDispenser ul li:nth-child(5) {
+      width: 33.333%;
+    }
+    #ticketDispenser ul li:nth-child(6) {
+      width: 33.333%;
+    }
+    #ticketDispenser ul li:nth-child(7) {
+      width: 33.333%;
+    }
+    #ticketButton {
+      display: flex;
+    }
+    .block {
+      display: none;
+    } 
+  </style>
+</head>
+<body>
+
+<h2>券売機</h2>
+<div id="container">
+	<div>
+    <h3>所持金：<span id="possessionMoney">0</span>円</h3>
+    <h3>内訳</h3>
+		<p>10000円：<span id="TenThousand">0</span>枚</p>
+		<p>5000円：<span id="FiveThousand">0</span>枚</p>
+		<p>1000円：<span id="Thousand">0</span>枚</p>
+		<p>500円：<span id="FiveHundred">0</span>枚</p>
+		<p>100円：<span id="Hundred">0</span>枚</p>
+		<p>50円：<span id="Fifty">0</span>枚</p>
+		<p>10円：<span id="Ten">0</span>枚</p>
+		<h3>電子マネー</h3>
+    <p><span id="eMoney">0</span>円</p>
+		<p>所持チケット枚数</p>
+    <p><span id="possessionTicket">0</span>枚</p>
+  </div>
+	<div>
+    <h3>投入金額：<span id="entryAmount">0</span>円</h3>
+    <h3>内訳</h3>
+		<p>10000円：<span id="entryAmountTenThousand">0</span>枚</p>
+		<p>5000円：<span id="entryAmountFiveThousand">0</span>枚</p>
+		<p>1000円：<span id="entryAmountThousand">0</span>枚</p>
+		<p>500円：<span id="entryAmountFiveHundred">0</span>枚</p>
+		<p>100円：<span id="entryAmountHundred">0</span>枚</p>
+		<p>50円：<span id="entryAmountFifty">0</span>枚</p>
+    <p>10円：<span id="entryAmountTen">0</span>枚</p>
+    <h3>投入金額</h3>
+    <p><span id="entryEMoney">0</span>円</p>
+  </div>
+  <div>
+    <h3>お釣り：<span id="changeAmount">0</span>円</h3>
+    <h3>内訳</h3>
+    <p>10000円：<span id="changeAmountTenThousand">0</span>枚</p>
+    <p>5000円：<span id="changeAmountFiveThousand">0</span>枚</p>
+    <p>1000円：<span id="changeAmountThousand">0</span>枚</p>
+    <p>500円：<span id="changeAmountFiveHundred">0</span>枚</p>
+    <p>100円：<span id="changeAmountHundred">0</span>枚</p>
+    <p>50円：<span id="changeAmountFifty">0</span>枚</p>
+    <p>10円：<span id="changeAmountTen">0</span>枚</p>
+  </div>
+  
+  <div id="ticketDispenser">
+      <div>
+          <h1 id="price">130円</h1>
+          <div id="ticketButton">
+            <button id="ticketPlusButton">
+              <p>＋</p>
+            </button>
+            <button id="ticketMinusButton">
+              <p>−</p>
+            </button>
+          </div>
+          <p>購入枚数：<span id="byTickets">0</span>枚</p>
+          <p>合計金額：<span id="totalByTickets">0</span>円</p>
+      </div>
+      <form id="target">
+      支払い方法<label><input type="radio" name="payment" onclick="radioMoney()" value="money" checked>現金</label>
+      <label><input type="radio" name="payment" onclick="radioIc()" value="ic">電子マネー</label>
+      </form>
+    <ul id="money">
+      <li class="entryButton" data-button-name="ten"><img src="./images/10.png" alt=""></li>
+      <li class="entryButton" data-button-name="fifty"><img src="./images/50.png" alt=""></li>
+      <li class="entryButton" data-button-name="hundred"><img src="./images/100.png" alt=""></li>
+      <li class="entryButton" data-button-name="fiveHundred"><img src="./images/500.png" alt=""></li>
+      <li class="entryButton" data-button-name="thousand"><img src="./images/1000.png" alt=""></li>
+      <li class="entryButton" data-button-name="fiveThousand"><img src="./images/5000.png" alt=""></li>
+      <li class="entryButton" data-button-name="tenThousand"><img src="./images/10000.png" alt=""></li>
+    </ul>
+    <ul id="ic">
+      <li id="icButton"><img src="./images/ic.png" alt=""></li>
+    </ul>
+  </div>
+</div>
+
+<button id="buyButton">購入する</button>
+
+<button id="change">お釣りをもらう</button>
+
+<button id="reset">リロード</button>
+
+<script src="index.js"></script>
+</body>
+</html>
